@@ -5,7 +5,11 @@
  * - logs "Hello <name>" if there is a name
  */
 function greet(name) {
-  // Your code here
+  if (name) {
+    console.log(`Hello ${name}`)
+  } else {
+    console.log("Hello") 
+  }
 }
 
 /**
@@ -14,7 +18,7 @@ function greet(name) {
  * - returns true if it's odd, false otherwise
  */
 function isOdd(n) {
-  // Your code here
+  return n % 2 !== 0 
 }
 
 /**
@@ -29,7 +33,16 @@ function isOdd(n) {
  * Hint: you can solve this without writing any loops!
  */
 function oddsSmallerThan(n) {
-  // Your code here
+  // // Your code here
+  // let totalOdds = 0
+  // for(let i = 0; i < n; i++){
+  //   if (i % 2 !== 0)  {
+  //     totalOdds += 1
+  //   }
+  // }
+  // return totalOdds
+
+  return Math.floor(n / 2)
 }
 
 /**
@@ -43,7 +56,8 @@ function oddsSmallerThan(n) {
  * squareOrDouble(9) -> 81
  */
 function squareOrDouble(n) {
-  // Your code here
+  return isOdd(n) ? n ** 2 : n * 2
+  
 }
 
 /**
@@ -65,7 +79,20 @@ function squareOrDouble(n) {
 function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
 
-  // Your code here
+  let nowDate = new Date()
+  
+  let year = birthDate.slice(0,4)
+  let month = birthDate.slice(4,6)
+  let day = birthDate.slice(6,8)
+  let bDate = new Date(year, month, day)
+  
+  // console.log("nowDate: ", nowDate)
+  // console.log("bDate: ", bDate)
+  // console.log("nowDate - bDate: ", nowDate - bDate)
+
+  let diff = nowDate - bDate
+  return Math.floor(diff / _MS_PER_YEAR)
+  
 }
 
 module.exports = {
